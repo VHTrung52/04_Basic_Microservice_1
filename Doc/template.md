@@ -1,18 +1,18 @@
-<details>
+<details open>
 <summary id="feature-1"><strong>1. Feature/Task Name</strong></summary>
 
 ### Summary
 - **Branch Name**: `feature/task-name`
-- **Tags**: Feature, Backend, UI, etc.
+- **Course Summary**: sth
 
-<details>
-<summary><strong>Implementation Details</strong></summary>
+<details open>
+<summary><strong>Details</strong></summary>
 
-- **Goal**: Briefly describe the purpose of this feature/task.
-- **Steps**:
-  1. Step 1 description
-  2. Step 2 description
-  3. Step 3 description
+- **Challenges Faced**:
+  - Challenge 1 and how it was resolved.
+  - Challenge 2 and how it was resolved.
+
+
 - **Code Snippets**:
   ```csharp
   // Example code
@@ -20,10 +20,6 @@
       Console.WriteLine("Hello, World!");
   }
   ```
-
-- **Challenges Faced**:
-  - Challenge 1 and how it was resolved.
-  - Challenge 2 and how it was resolved.
 
 - **Resources/Links**:
   - [Link to design document](#)
@@ -34,13 +30,7 @@
 |:--:| 
 | *Space* |
 
-
-> Do not push the big red button.
-
-
-
 </details>
-
 </details>
 
 ---
