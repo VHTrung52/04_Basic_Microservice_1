@@ -9,7 +9,134 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
 
   <style>
-    
+   /* General body styling */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0D1117; /* Dark background */
+  color: #e0e0e0; /* Light grey text color */
+  margin: 20px;
+}
+
+/* Agenda Box */
+.agenda {
+  border: 1px solid #666;
+  padding: 15px;
+  border-radius: 5px;
+  width: 200px;
+}
+
+.agenda h2 {
+  font-size: 1.3em;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.agenda ul {
+  list-style: none;
+  padding: 0;
+}
+
+.agenda ul li {
+  font-size: 1em;
+  color: #bbbbbb;
+  margin-bottom: 5px;
+}
+
+/* Main Topic Box */
+.main-topic {
+  border: 1px solid #666;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.main-topic h2 {
+  font-size: 1.3em;
+  color: #ffffff;
+}
+
+.main-topic p {
+  font-size: 1em;
+  color: #e0e0e0;
+}
+
+.main-topic summary {
+  font-weight: bold;
+  font-size: 1.1em;
+  cursor: pointer;
+  color: #f0f0f0;
+}
+
+/* Task Box */
+.task {
+  border: 1px solid #444;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.task summary {
+  font-weight: bold;
+  font-size: 1.1em;
+  color: #ffffff;
+}
+
+.task h3 {
+  font-size: 1.3em;
+  color: #f0f0f0;
+}
+
+.task strong {
+  font-weight: bold;
+  color: #dcdcdc;
+}
+
+.task code {
+  background-color: #333;
+  padding: 3px 6px;
+  border-radius: 3px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.9em;
+  color: #f8f8f2;
+}
+
+.task ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.task ul li {
+  margin-left: 10px;
+  font-size: 1em;
+  color: #bbbbbb;
+  line-height: 1.5;
+}
+
+/* Collapsible content */
+details {
+  border: 1px solid #444;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 4px;
+}
+
+details summary {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* Links */
+a {
+  color: #43a0f0; /* Bright blue link color */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
     /* Sidebar styling */
     .sidebar {
       position: fixed;
