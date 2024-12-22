@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Highlighting Example</title>
+
+  <!-- Highlight.js Dark Theme -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+
+  <style>
+   /* General body styling */
+body {
+  background-color: #121417; /* Very dark gray background */
+  color: #d6d6d6; /* Light gray text for better readability */
+  font-family: Arial, sans-serif; /* Clean font */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+/* Agenda Box */
+.agenda {
+  border: 1px solid #666;
+  padding: 15px;
+  border-radius: 5px;
+  width: 200px;
+}
+
+.agenda h2 {
+  font-size: 1.3em;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.agenda ul {
+  list-style: none;
+  padding: 0;
+}
+
+.agenda ul li {
+  font-size: 1em;
+  color: #bbbbbb;
+  margin-bottom: 5px;
+}
+
+/* Main Topic Box */
+.main-topic {
+  border: 1px solid #666;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.main-topic h2 {
+  font-size: 1.3em;
+  color: #ffffff;
+}
+
+.main-topic p {
+  font-size: 1em;
+  color: #e0e0e0;
+}
+
+.main-topic summary {
+  font-weight: bold;
+  font-size: 1.1em;
+  cursor: pointer;
+  color: #f0f0f0;
+}
+
+/* Collapsible content */
+details {
+  border: 1px solid #444;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+details summary {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* Links */
+a {
+  color: #43a0f0; /* Bright blue link color */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+    /* Sidebar styling */
+    .sidebar {
+      position: fixed;
+      top: 20px;
+      left: 10px;
+      width: 210px;
+      padding: 20px;
+      /* border: 2px solid #ccc; */
+      border-radius: 5px;
+      /* background-color: #1a1d23; */
+  color: #e0e0e0; /* Light gray text */
+  border-radius: 12px; /* Rounded edges */
+  padding: 20px 25px; /* Inner padding */
+  margin: 20px auto; /* Centering and spacing between sections */
+  background-color: #1a1d23; /* Slightly lighter dark gray for sections */
+
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.6); /* Stronger shadow for depth */
+  border: 1px solid #292c33; /* Subtle border for definition */
+
+    }
+    .sidebar h2 {
+  font-size: 1.8em; /* Larger heading size */
+  font-weight: bold; /* Bold heading */
+  color: #ffffff; /* White text */
+  margin-bottom: 15px; /* Space below heading */
+}
+
+/* Paragraphs and Lists */
+.sidebar p, .sidebar ul {
+  font-size: 1em;
+  line-height: 1.6; /* Improve readability */
+  color: #c2c2c2; /* Medium-light gray for paragraphs */
+}
+
+    .sidebar h3 {
+      margin-top: 0;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 5px 0;
+      text-decoration: none;
+      color: #ccc;
+    }
+
+    /* Main content styling */
+    .content {
+      margin-left: 270px;
+    }
+
+    /* section {
+      padding: 20px;
+      margin-bottom: 40px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    } */
+
+    pre {
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+
+    .box {
+      background-color: #2d2d2d;
+      /* padding: 10px; */
+      border-left: 5px solid #555;
+      font-size: 16px;
+      width: 100%; /* Ensures the box stretches to the full line */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      box-sizing: border-box; /* Includes padding and border in width */
+      display: block; /* Makes the element stretch to the full line */
+      color: #fff; /* Ensures text is readable */
+    }
+
+    section {
+  background-color: #1a1d23; /* Slightly lighter dark gray for sections */
+  color: #e0e0e0; /* Light gray text */
+  border-radius: 12px; /* Rounded edges */
+  padding: 20px 25px; /* Inner padding */
+  margin: 20px auto; /* Centering and spacing between sections */
+  width: 90%; /* Makes sections responsive */
+  
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.6); /* Stronger shadow for depth */
+  border: 1px solid #292c33; /* Subtle border for definition */
+}
+
+/* Section Headings */
+section h2 {
+  font-size: 1.8em; /* Larger heading size */
+  font-weight: bold; /* Bold heading */
+  color: #ffffff; /* White text */
+  margin-bottom: 15px; /* Space below heading */
+}
+
+/* Paragraphs and Lists */
+section p, section ul {
+  font-size: 1em;
+  line-height: 1.6; /* Improve readability */
+  color: #c2c2c2; /* Medium-light gray for paragraphs */
+}
+
+/* Details and Summary for Nested Content */
+details {
+  background-color: #2a2e35; /* Dark gray-blue background */
+  color: #e0e0e0;
+  border-radius: 10px; /* Rounded corners for nested content */
+  padding: 10px 15px;
+  margin-top: 15px;
+  border: 1px solid #3a3d44; /* Subtle border */
+}
+
+details summary {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #f0f0f0; /* Bright white for clarity */
+  cursor: pointer;
+}
+
+/* Hover Effect on Details */
+.test:hover {
+  background-color: #383d44; /* Lighter shade on hover */
+  transition: background-color 0.3s ease-in-out;
+}
+
+  </style>
+</head>
+<body>
+<details open class="test">
+    <summary id="5-6"><strong>5-6</strong></summary>
+  
+    <ul>
+      <li><strong>Branch Name</strong>: <code>feature/02_implement_catalog_api_base</code></li>
+    </ul>
+  
+    <details>
+      <summary><strong>Details</strong></summary>
+      <ul>
+        <li><strong>Architecture</strong>:
+          <img src="img/common/1734321999000-e6a3e4a3-3edf-46fe-9d11-d6cd0e5feb28_16.jpg" alt="alt text">
+        </li>
+        <li><strong>Implementation</strong>:
+          <ul>
+            <li>Create project repo and add <code>.gitignore</code> file</li>
+            <li>Implement <code>BuildingBlock</code> and <code>CatalogAPI</code> using <code>.Net8</code>
+              <blockquote>
+                <p><strong>Note:</strong> When creating a project, you need to create actual folders. Folders in <code>Visual Studio</code> are logical and are not created in File Explorer. You have to go to File Explorer and in your project folder create the folder you want or specify it in the path when creating a new project.</p>
+              </blockquote>
+              <ul>
+                <li><code>BuildingBlock</code>: project for common library used in the solution</li>
+                <li><code>CatalogAPI</code>: place for Catalog logic</li>
+              </ul>
+            </li>
+            <li><code>BuildingBlock</code> changes:
+              <ul>
+                <li>Install common library:
+                  <ul>
+                    <li><code>MediatR</code> version <code>12.4.1</code></li>
+                    <li><code>Carter</code> version <code>8.2.1</code></li>
+                    <li><code>Mapster</code> version <code>7.4.1</code></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><code>CatalogAPI</code> changes:
+              <ul>
+                <li>Add reference to project <code>BuildingBlock</code></li>
+                <li>Implement <code>Global using</code> to simplify imports</li>
+                <li>Register/Implement common libraries:
+                  <ul>
+                    <li><code>MediatR</code></li>
+                    <li><code>Carter</code></li>
+                    <li><code>Mapster</code></li>
+                  </ul>
+                </li>
+                <li>Implement exclusive library:
+                  <ul>
+                    <li><code>Marten</code> version <code>7.34.1</code></li>
+                  </ul>
+                </li>
+                <li>Implement <code>Minimal API endpoint</code> using <code>Carter</code> library</li>
+                <li>Implement basic APIs:
+                  <ul>
+                    <li>get products</li>
+                    <li>create product</li>
+                    <li>get product by id</li>
+                    <li>get product by category</li>
+                    <li>update product</li>
+                    <li>delete product</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><code>Docker</code> changes:
+              <ul>
+                <li>Containerize CatalogDb (PostgreSQL)</li>
+                <li>Add <code>Docker-Compose</code></li>
+              </ul>
+            </li>
+            <li>Add <code>Docker Compose</code> using <code>Visual Studio</code>. At the time of writing, it seems Visual Studio provides more support for generating Docker files. The author of the course recommends this approach.</li>
+            <li>How to check CatalogDb in Docker container:
+              <ul>
+                <li>In <code>cmd</code>:
+                  <ul>
+                    <li>Run <code>docker ps</code> to show running containers</li>
+                    <li>Run <code>docker exec -it {container_id} bash</code> to open bash shell of your container</li>
+                    <li>Run <code>psql -U {username}</code> to open PostgreSQL terminal</li>
+                  </ul>
+                </li>
+                <li>In <code>PostgreSQL</code> terminal:
+                  <ul>
+                    <li>Run <code>\l</code> to list all databases</li>
+                    <li>Run <code>\q</code> to exit PostgreSQL command line utility <code>psql</code></li>
+                    <li>Run <code>\c {database_name}</code> to connect to a specific database (once connected, you can execute SQL commands)</li>
+                    <li>Run <code>\d</code> to list database objects</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>Connect to database:
+              <ul>
+                <li><img src="img/5-6/image-9.png" alt="alt text"></li>
+                <li><img src="img/5-6/image-8.png" alt="alt text"></li>
+                <li><img src="img/5-6/image-10.png" alt="alt text"></li>
+              </ul>
+            </li>
+            <li>Check data in database after creation:
+              <ul>
+                <li><img src="img/5-6/image-11.png" alt="alt text"></li>
+                <li><code>select * from mt_doc_product;</code></li>
+                <li><img src="img/5-6/image-12.png" alt="alt text"></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </details>
+  
+    <details>
+      <summary><strong>Bug</strong></summary>
+      <ul>
+        <li><strong>Bug 1:</strong> Carter modules are not registered in ASP.NET Core app
+          <ul>
+            <li>Problem:
+              <ul>
+                <li>Using <code>Carter 8.2.1</code> does not directly support layered architecture if you add Carter to the service layer instead of the WebAPI layer.</li>
+              </ul>
+            </li>
+            <li>Solution:
+              <ul>
+                <li><a href="https://stackoverflow.com/questions/77180710/carter-modules-are-not-registered-in-asp-net-core-app/79015329#79015329">Github link</a></li>
+                <li>Solution 1:
+                  <pre><code>public class DependencyContextAssemblyCatalogCustom : DependencyContextAssemblyCatalog
+  {
+      public override IReadOnlyCollection<Assembly> GetAssemblies()
+      {
+          return new List<Assembly> { typeof(Program).Assembly };
+      }
+  }</code></pre>
+                  <p>Register the <code>Carter</code> like this in <code>Program.cs</code>:</p>
+                  <pre><code>builder.Services.AddCarter(new DependencyContextAssemblyCatalogCustom());</code></pre>
+                </li>
+                <li>Solution 2:
+                  <p>Add the Carter library to the entry assembly (e.g., Web API project) and register it like this in <code>Program.cs</code>:</p>
+                  <pre><code>builder.Services.AddCarter();</code></pre>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><strong>Bug 2:</strong> Class cannot have a primary constructor
+          <ul>
+            <li>Problem:
+              <ul>
+                <li>Visual Studio shows an error: <code>Class cannot have a primary constructor</code> but the build succeeds.</li>
+              </ul>
+            </li>
+            <li>Solution:
+              <ul>
+                <li><a href="https://stackoverflow.com/questions/77487192/primary-constructor-feature-c12-doesnt-compile">Github Solution</a></li>
+                <li>Outdated <code>ReSharper</code> causes the error. Update <code>ReSharper</code> and restart <code>Visual Studio</code> to resolve it.</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </details>
+  </details>
+</body>
