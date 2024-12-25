@@ -8,7 +8,7 @@ public class GetProductByIdQueryhandler(IDocumentSession session, ILogger<GetPro
 {
     public async Task<GetProductByIdResult> Handle(GetProductByIdQuery query, CancellationToken cancellationToken)
     {
-        logger.LogInformation($"{nameof(GetProductByIdQueryhandler)} executed with input {query}");
+        // logger.LogInformation($"{nameof(GetProductByIdQueryhandler)} executed with input {query}");
 
         var product = await session.LoadAsync<Product>(query.Id, cancellationToken);
 
