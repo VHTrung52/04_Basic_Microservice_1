@@ -432,3 +432,5 @@ Thumbs.db
 Desktop.ini
 .DS_Store
 Doc/.idea/indexLayout.xml
+Src/eshop-microservices/.idea/.idea.eshop-microservices/.idea/jsonSchemas.xml
+Src/eshop-microservices/.idea/.idea.eshop-microservices/Docker/docker-compose.generated.override.yml
