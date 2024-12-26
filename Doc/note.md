@@ -15,3 +15,8 @@ i don't think this is good, will update to return `400 Bad Request` with json ms
 
 **Validation**
 - The author implement fluent validation at command, query level and i don't think that is good, it think we should validate at request level so that when we start handle the request we know that all the data is validated 
+
+**Logging**
+- ![alt text](img\note\image.png)
+- ![alt text](img\note\image-1.png)
+- ![alt text](img\note\image-2.png)

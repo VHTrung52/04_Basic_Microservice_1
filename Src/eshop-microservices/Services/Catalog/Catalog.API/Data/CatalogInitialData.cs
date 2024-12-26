@@ -13,7 +13,6 @@ public class CatalogInitialData : IInitialData
     
     public async Task Populate(IDocumentStore store, CancellationToken cancellation)
     {
-        // var logger = new LoggerFactory().CreateLogger<CatalogInitialData>();
         _logger.LogInformation("[START] Populating Catalog Data");
         using var session = store.LightweightSession();
         if (await session.Query<Product>().AnyAsync(cancellation))

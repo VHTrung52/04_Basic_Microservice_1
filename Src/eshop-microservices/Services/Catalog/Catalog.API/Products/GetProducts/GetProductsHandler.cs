@@ -6,13 +6,11 @@ public record GetProductsQuery(int? PageNumber = 1, int? PageSize = 10) : IQuery
 
 public record GetProductsResult(IEnumerable<Product> Products);
 
-public class GetProductsQueryHandler(IDocumentSession session, ILogger<GetProductsQueryHandler> logger) : IQueryHandler<GetProductsQuery, GetProductsResult>
+public class GetProductsQueryHandler(IDocumentSession session) : IQueryHandler<GetProductsQuery, GetProductsResult>
 {
     public async Task<GetProductsResult> Handle(GetProductsQuery query, CancellationToken cancellationToken)
     {
-        logger.LogInformation($"{nameof(GetProductsQueryHandler)} executed with input {query}");
-        
-        var products = await session.Query<Product>().ToPagedListAsync(query.PageNumber.Value, query.PageSize.Value, cancellationToken);
+        var products = await session.Query<Product>().ToPagedListAsync(query.PageNumber!.Value, query.PageSize!.Value, cancellationToken);
         
         return new GetProductsResult(products);
     }
