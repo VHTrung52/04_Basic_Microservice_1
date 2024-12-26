@@ -34,6 +34,7 @@ builder.Services.AddExceptionHandler<CustomExceptionHandler>();
 builder.Services.AddHealthChecks()
     .AddNpgSql(dbConnectionString);
 
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline
