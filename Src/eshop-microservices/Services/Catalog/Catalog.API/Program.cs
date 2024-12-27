@@ -19,6 +19,7 @@ builder.Services.AddMediatR(config =>
     config.AddOpenBehavior(typeof(ValidationBehavior<,>));
     config.AddOpenBehavior(typeof(LoggingBehavior<,>));
 });
+// Add Fluent Validation to container
 builder.Services.AddValidatorsFromAssembly(assembly);
 // Add Marten to container
 builder.Services.AddMarten(opts =>
