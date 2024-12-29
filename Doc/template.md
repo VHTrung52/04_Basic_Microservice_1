@@ -3,7 +3,6 @@
 
 ### Summary
 - **Branch Name**: `feature/task-name`
-- **Course Summary**: sth
 
 <details open>
 <summary><strong>Details</strong></summary>
