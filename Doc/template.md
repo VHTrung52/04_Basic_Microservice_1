@@ -8,9 +8,9 @@
 <details open>
 <summary><strong>Details</strong></summary>
 
-- **Challenges Faced**:
-  - Challenge 1 and how it was resolved.
-  - Challenge 2 and how it was resolved.
+- **Architecture**:
+- **Implementation**:
+
 
 
 - **Code Snippets**:
@@ -29,6 +29,8 @@
 | ![image.png](img/templateImg.png) | 
 |:--:| 
 | *Space* |
+
+---
 
 </details>
 </details>

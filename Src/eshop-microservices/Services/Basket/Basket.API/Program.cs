@@ -1,15 +1,15 @@
+using Basket.API;
+using Basket.API.Data;
+using Basket.API.Models;
 using BuildingBlocks.Behaviors;
 using BuildingBlocks.Exceptions.Handler;
-using Catalog.API;
-using Catalog.API.Data;
-using HealthChecks.UI.Client;
-using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Marten;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to container
-var assembly = typeof(Program).Assembly;
 var dbConnectionString = builder.Configuration.GetConnectionString("Database") ?? throw new NullReferenceException("Database connection string not found");
+var assembly = typeof(Program).Assembly;
 // Add Carter to container
 builder.Services.AddCarter(new DependencyContextAssemblyCatalogCustom());
 // Add MediatR to container
@@ -25,30 +25,17 @@ builder.Services.AddValidatorsFromAssembly(assembly);
 builder.Services.AddMarten(opts =>
 {
     opts.Connection(dbConnectionString);
+    opts.Schema.For<ShoppingCart>().Identity(x => x.UserName);
 }).UseLightweightSessions();
-// Add Seeding data to container if in development Env 
-if (builder.Environment.IsDevelopment()) 
-    builder.Services.InitializeMartenWith<CatalogInitialData>();
 // Add custom exception handler to container
 builder.Services.AddExceptionHandler<CustomExceptionHandler>();
-// Add health check to container
-builder.Services.AddHealthChecks()
-    .AddNpgSql(dbConnectionString);
 
+builder.Services.AddScoped<IBasketRepository, BasketRepository>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline
 app.MapCarter();
 
 app.UseExceptionHandler(options => {});
 
-app.UseHealthChecks("/health",
-    new HealthCheckOptions()
-    {
-        ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
-    });
-
 app.Run();
-
-

@@ -6,7 +6,7 @@
 [x] fixed
 
 - The author implement validation behaviour and return `500 Internal Server Error` with this msg
-![alt text](image.png) 
+![alt text](img\note\image(2).png) 
 i don't think this is good, will update to return `400 Bad Request` with json msg
 
 **Logging-Tracing**
