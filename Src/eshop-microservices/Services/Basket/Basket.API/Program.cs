@@ -3,7 +3,9 @@ using Basket.API.Data;
 using Basket.API.Models;
 using BuildingBlocks.Behaviors;
 using BuildingBlocks.Exceptions.Handler;
+using HealthChecks.UI.Client;
 using Marten;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Caching.Distributed;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -38,19 +40,24 @@ builder.Services.AddStackExchangeRedisCache(options =>
 builder.Services.AddExceptionHandler<CustomExceptionHandler>();
 
 builder.Services.AddScoped<IBasketRepository, BasketRepository>();
-// Manual register decorator
-builder.Services.AddScoped<IBasketRepository>(provider =>
-{
-    var basketRepository = provider.GetRequiredService<BasketRepository>();
-    return new CachedBasketRepository(basketRepository, provider.GetRequiredService<IDistributedCache>());
-});
 // Using Scrutor library to register decorator
 builder.Services.Decorate<IBasketRepository, CachedBasketRepository>();
+
+// Add health check
+builder.Services.AddHealthChecks()
+    .AddNpgSql(dbConnectionString)
+    .AddRedis(cacheConnectionString);
 
 var app = builder.Build();
 
 app.MapCarter();
 
 app.UseExceptionHandler(options => {});
+
+app.UseHealthChecks("/health",
+    new HealthCheckOptions()
+    {
+        ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+    });
 
 app.Run();

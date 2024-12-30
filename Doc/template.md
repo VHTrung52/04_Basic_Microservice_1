@@ -32,6 +32,12 @@
 ---
 
 </details>
+<details>
+<summary><strong>Bug</strong></summary>
+
+**Bug 1**: 
+
+</details>
 </details>
 
 ---
