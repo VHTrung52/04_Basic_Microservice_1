@@ -3,7 +3,6 @@
 
 ### Summary
 - **Branch Name**: `feature/task-name`
-- **Course Summary**: sth
 
 <details open>
 <summary><strong>Details</strong></summary>
@@ -31,6 +30,12 @@
 | *Space* |
 
 ---
+
+</details>
+<details>
+<summary><strong>Bug</strong></summary>
+
+**Bug 1**: 
 
 </details>
 </details>
