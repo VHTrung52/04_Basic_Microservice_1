@@ -8,11 +8,11 @@ public record Address
     public string Country { get; } = default!;
     public string State { get; } = default!;
     public string ZipCode { get; } = default!;
-    protected Address()
+    public Address()
     {
     }
 
-    private Address(string firstName, string lastName, string emailAddress, string addressLine, string country, string state, string zipCode)
+    public Address(string firstName, string lastName, string emailAddress, string addressLine, string country, string state, string zipCode)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(emailAddress);
         ArgumentException.ThrowIfNullOrWhiteSpace(addressLine);

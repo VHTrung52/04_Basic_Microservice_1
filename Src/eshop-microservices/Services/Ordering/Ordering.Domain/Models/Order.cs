@@ -22,7 +22,7 @@ public class Order : Aggregate<Guid>
         private set { }
     }
 
-    public Order Create(Guid id, Guid customerId, string orderName, Address shippingAddress, Address billingAddress, Payment payment)
+    public static Order Create(Guid id, Guid customerId, string orderName, Address shippingAddress, Address billingAddress, Payment payment)
     {
         var order = new Order
         {
@@ -35,7 +35,7 @@ public class Order : Aggregate<Guid>
             Status = OrderStatus.Pending
         };
 
-        AddDomainEvent(new OrderCreatedEvent(order));
+        order.AddDomainEvent(new OrderCreatedEvent(order));
 
         return order;
     }
