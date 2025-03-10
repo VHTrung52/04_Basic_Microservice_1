@@ -231,7 +231,7 @@ details summary {
       <summary><strong>Details</strong></summary>
       <ul>
         <li><strong>Architecture</strong>:
-          <img src="img/common/1734321999000-e6a3e4a3-3edf-46fe-9d11-d6cd0e5feb28_16.jpg" alt="alt text">
+          <img src="img/share/1734321999000-e6a3e4a3-3edf-46fe-9d11-d6cd0e5feb28_16.jpg" alt="alt text">
         </li>
         <li><strong>Implementation</strong>:
           <ul>
@@ -241,13 +241,13 @@ details summary {
                 <p><strong>Note:</strong> When creating a project, you need to create actual folders. Folders in <code>Visual Studio</code> are logical and are not created in File Explorer. You have to go to File Explorer and in your project folder create the folder you want or specify it in the path when creating a new project.</p>
               </blockquote>
               <ul>
-                <li><code>BuildingBlock</code>: project for common library used in the solution</li>
+                <li><code>BuildingBlock</code>: project for share library used in the solution</li>
                 <li><code>CatalogAPI</code>: place for Catalog logic</li>
               </ul>
             </li>
             <li><code>BuildingBlock</code> changes:
               <ul>
-                <li>Install common library:
+                <li>Install share library:
                   <ul>
                     <li><code>MediatR</code> version <code>12.4.1</code></li>
                     <li><code>Carter</code> version <code>8.2.1</code></li>
@@ -260,7 +260,7 @@ details summary {
               <ul>
                 <li>Add reference to project <code>BuildingBlock</code></li>
                 <li>Implement <code>Global using</code> to simplify imports</li>
-                <li>Register/Implement common libraries:
+                <li>Register/Implement share libraries:
                   <ul>
                     <li><code>MediatR</code></li>
                     <li><code>Carter</code></li>
